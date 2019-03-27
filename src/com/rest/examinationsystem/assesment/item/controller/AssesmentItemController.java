@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -13,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.rest.examination.system.util.DateUtil;
-import com.rest.examination.system.util.ImageUtil;
 import com.rest.examinationsystem.assesment.item.service.AssesmentItemService;
+import com.rest.examinationsystem.util.DateUtil;
+import com.rest.examinationsystem.util.ExcelUtil;
+import com.rest.examinationsystem.util.ImageUtil;
 import com.rest.framework.bean.ResponseBean;
 import com.rest.framework.constant.MessageEnum;
 import com.rest.framework.exception.NoRecordsFoundException;
@@ -29,17 +31,40 @@ public class AssesmentItemController {
 
 	@Autowired
 	private AssesmentItemService assesmentItemService;
+	
+	@Value("${assesmentFilePath}")
+	private String assesmentFilePath;
+	
+	@Autowired
+	private ExcelUtil excelUtil;
 
+//	@RequestMapping(value = "/createAssesmentItem", method = RequestMethod.POST)
+//	public ResponseEntity createAssesmentItem(@RequestHeader("API-KEY") String apiKey)
+//			throws UnauthorizedException, ParseException, IOException {
+//		if (!apiKey.equals(MessageEnum.API_KEY)) {
+//			throw new UnauthorizedException(MessageEnum.unathorized);
+//		}
+//		ResponseBean responseBean = new ResponseBean();
+//		responseBean.setBody(MessageEnum.enumMessage.SUCESS.getMessage());
+//		return new ResponseEntity(responseBean, org.springframework.http.HttpStatus.OK);
+//	}
+	
+	
 	@RequestMapping(value = "/createAssesmentItem", method = RequestMethod.POST)
-	public ResponseEntity createAssesmentItem(@RequestHeader("API-KEY") String apiKey)
+	public ResponseEntity createAssesmentItem()
 			throws UnauthorizedException, ParseException, IOException {
-		if (!apiKey.equals(MessageEnum.API_KEY)) {
-			throw new UnauthorizedException(MessageEnum.unathorized);
-		}
+		
+		System.out.println(assesmentFilePath);
+		
+		
+		excelUtil.convertExcelToItemObject(assesmentFilePath);
+		
+		
 		ResponseBean responseBean = new ResponseBean();
 		responseBean.setBody(MessageEnum.enumMessage.SUCESS.getMessage());
 		return new ResponseEntity(responseBean, org.springframework.http.HttpStatus.OK);
 	}
+	
 
 	@RequestMapping(value = "/getAssesmentItemById", method = RequestMethod.GET)
 	public ResponseEntity getAssesmentItemById(@RequestHeader("API-KEY") String apiKey, @RequestParam("Id") long id)

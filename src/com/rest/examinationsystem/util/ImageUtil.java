@@ -1,4 +1,4 @@
-package com.rest.examination.system.util;
+package com.rest.examinationsystem.util;
 
 import java.io.IOException;
 import java.util.Base64;

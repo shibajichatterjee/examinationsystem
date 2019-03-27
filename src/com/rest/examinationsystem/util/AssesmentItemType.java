@@ -1,4 +1,4 @@
-package com.rest.examination.system.util;
+package com.rest.examinationsystem.util;
 
 public enum AssesmentItemType {
 	

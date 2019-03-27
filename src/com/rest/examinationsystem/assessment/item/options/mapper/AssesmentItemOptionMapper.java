@@ -5,11 +5,11 @@ package com.rest.examinationsystem.assessment.item.options.mapper;
 
 import org.springframework.stereotype.Component;
 
-import com.rest.examination.system.util.AssesmentItemType;
 import com.rest.examinationsystem.assesment.item.dto.AssesmentItemDto;
 import com.rest.examinationsystem.assesment.item.entity.AssesmentItem;
 import com.rest.examinationsystem.assessment.item.options.dto.AssesmentItemOptionDto;
 import com.rest.examinationsystem.assessment.item.options.entity.AssesmentItemOption;
+import com.rest.examinationsystem.util.AssesmentItemType;
 import com.rest.framework.mapper.AbstractMapper;
 
 

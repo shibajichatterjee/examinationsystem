@@ -12,12 +12,12 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.rest.examination.system.util.AssesmentItemType;
 import com.rest.examinationsystem.assesment.item.entity.AssesmentItem;
+import com.rest.examinationsystem.util.AssesmentItemType;
 import com.rest.framework.entity.AbstractIdentifierObject;
 
 @Entity
-@Table(name = "ASSESMENT_ITEM")
+@Table(name = "ASSESMENT_ITEM_OPTION")
 public class AssesmentItemOption extends AbstractIdentifierObject{
 	
 	private static final long serialVersionUID = 1L;

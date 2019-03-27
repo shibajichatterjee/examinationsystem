@@ -10,7 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Lob;
 import javax.persistence.Table;
 
-import com.rest.examination.system.util.AssesmentItemType;
+import com.rest.examinationsystem.util.AssesmentItemType;
 import com.rest.framework.entity.AbstractIdentifierObject;
 
 @Entity
@@ -19,6 +19,9 @@ public class AssesmentItem extends AbstractIdentifierObject{
 	
 	private static final long serialVersionUID = 1L;
 
+	@Column(name="assessment_item_topic")
+	private String  assessmentItemTopic;
+	
 	@Column(name="assessment_item_given_id")
 	private String  assessmentItemGivenId;
 	
@@ -38,6 +41,12 @@ public class AssesmentItem extends AbstractIdentifierObject{
 	
 	@Column(name="assessment_item_negative_marks")
 	private int assessmentItemNegativeMarks;
+	
+	@Column(name="assessment_item_no_of_option")
+	private int assesmentItemNoOfOption;
+	
+	@Column(name="correct_option")
+	private int correctOption;
 	
 	
 //	@Column(name = "photo", unique = false, nullable = false, length = 100000)
@@ -116,6 +125,23 @@ public class AssesmentItem extends AbstractIdentifierObject{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public int getAssesmentItemNoOfOption() {
+		return assesmentItemNoOfOption;
+	}
+
+	public void setAssesmentItemNoOfOption(int assesmentItemNoOfOption) {
+		this.assesmentItemNoOfOption = assesmentItemNoOfOption;
+	}
+
+	public String getAssessmentItemTopic() {
+		return assessmentItemTopic;
+	}
+
+	public void setAssessmentItemTopic(String assessmentItemTopic) {
+		this.assessmentItemTopic = assessmentItemTopic;
+	}
+
 	
 
 }
