@@ -9,6 +9,8 @@ import com.rest.framework.dto.AbstractIdentifierDTO;
 public class AssesmentItemDto extends AbstractIdentifierDTO{
 	
 	private static final long serialVersionUID = 1L;
+	
+	private String assessmentItemTopic;
 
 	private String  assessmentItemGivenId;
 	
@@ -22,10 +24,14 @@ public class AssesmentItemDto extends AbstractIdentifierDTO{
 	
 	private int assessmentItemNegativeMarks;
 	
+	private int assesmentItemNoOfOption;
+	
 //	@Column(name = "photo", unique = false, nullable = false, length = 100000)
 //    private byte[] photo;
 //	
 	private String maxTimeAllowed;
+	
+	private int correctOption;
 	
 	private String comment;
 
@@ -96,5 +102,28 @@ public class AssesmentItemDto extends AbstractIdentifierDTO{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
+	public String getAssessmentItemTopic() {
+		return assessmentItemTopic;
+	}
+
+	public void setAssessmentItemTopic(String assessmentItemTopic) {
+		this.assessmentItemTopic = assessmentItemTopic;
+	}
+
+	public int getAssesmentItemNoOfOption() {
+		return assesmentItemNoOfOption;
+	}
+
+	public void setAssesmentItemNoOfOption(int assesmentItemNoOfOption) {
+		this.assesmentItemNoOfOption = assesmentItemNoOfOption;
+	}
+
+	public int getCorrectOption() {
+		return correctOption;
+	}
+
+	public void setCorrectOption(int correctOption) {
+		this.correctOption = correctOption;
+	}
 }

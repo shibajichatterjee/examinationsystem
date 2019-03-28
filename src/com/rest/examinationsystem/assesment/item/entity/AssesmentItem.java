@@ -142,6 +142,12 @@ public class AssesmentItem extends AbstractIdentifierObject{
 		this.assessmentItemTopic = assessmentItemTopic;
 	}
 
-	
+	public int getCorrectOption() {
+		return correctOption;
+	}
+
+	public void setCorrectOption(int correctOption) {
+		this.correctOption = correctOption;
+	}
 
 }
