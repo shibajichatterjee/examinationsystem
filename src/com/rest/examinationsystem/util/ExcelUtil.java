@@ -207,12 +207,10 @@ public class ExcelUtil {
                 				 assesmentItemOptionDtoList.add(assesmentItemOptionDto);
                 			 }
                 			 if(j==10) {
-                				 //assesmentItemOptionDto = new AssesmentItemOptionDto();
                 				 assesmentItemOptionDto.setOptionText(String.valueOf(cell.getNumericCellValue()));
                 				 assesmentItemOptionDtoList.add(assesmentItemOptionDto);
                 			 }
                 			 if(j==11) {
-                				 //assesmentItemOptionDto = new AssesmentItemOptionDto();
                 				 assesmentItemOptionDto.setOptionText(String.valueOf(cell.getNumericCellValue()));
                 				 assesmentItemOptionDtoList.add(assesmentItemOptionDto);
                 			 }
@@ -227,10 +225,12 @@ public class ExcelUtil {
                 			 }
                     	}
                      }
-					//assesmentItemOptionDtoList.add(assesmentItemOptionDto);
 				}
 				//assesmentItemOptionDtoList.get(assesmentItemDto.getCorrectOption()-1).setCorrectAnswer("YES");
-				assesmentItemDtoMap.put(assesmentItemDto, assesmentItemOptionDtoList);
+				if(assesmentItemOptionDtoList!=null && assesmentItemOptionDtoList.size()>0) {
+					assesmentItemOptionDtoList.get(assesmentItemDto.getCorrectOption()-1).setCorrectAnswer("YES");
+				    assesmentItemDtoMap.put(assesmentItemDto, assesmentItemOptionDtoList);
+				}
 			}
 			rowIndex++;
 		}
