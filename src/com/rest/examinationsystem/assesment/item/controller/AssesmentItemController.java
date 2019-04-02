@@ -69,9 +69,10 @@ public class AssesmentItemController {
 		
 		for(AssesmentItemDto assesmentItemDto:assesmentItemDtoMap.keySet())
 		{
-			assesmentItemService.createOrUpdate(assesmentItemDto);
+			Long assesmentItemId =  (Long)assesmentItemService.create(assesmentItemDto);
+			assesmentItemDto.setId(assesmentItemId);
 			for(AssesmentItemOptionDto assesmentItemOptionDto:assesmentItemDtoMap.get(assesmentItemDto))
-			{
+			{   assesmentItemOptionDto.setAssesmentItem(assesmentItemDto);
 				assesmentItemOptionService.create(assesmentItemOptionDto);
 			}
 

@@ -26,9 +26,11 @@ public class AssesmentItemMapper extends AbstractMapper<AssesmentItemDto , Asses
 			assesmentItem.setAssessmentItemText(dto.getAssessmentItemText());
 			assesmentItem.setComment(dto.getComment());
 			assesmentItem.setAssesmentItemType(AssesmentItemType.getAssesmentItemType(dto.getAssesmentItemType()));
-			assesmentItem.setComment(dto.getComment());
 			assesmentItem.setId(dto.getId());
+			assesmentItem.setAssesmentItemNoOfOption(dto.getAssesmentItemNoOfOption());
+			assesmentItem.setAssessmentItemTopic(dto.getAssesmentItemType());
 			assesmentItem.setMaxTimeAllowed(dto.getMaxTimeAllowed());
+			assesmentItem.setCorrectOption(dto.getCorrectOption());
 		}
 		return assesmentItem;
 	}
@@ -44,12 +46,15 @@ public class AssesmentItemMapper extends AbstractMapper<AssesmentItemDto , Asses
 			assesmentItem.setAssessmentItemNegativeMarks(bo.getAssessmentItemNegativeMarks());
 			assesmentItem.setAssessmentItemText(bo.getAssessmentItemText());
 			assesmentItem.setComment(bo.getComment());
+			assesmentItem.setAssesmentItemNoOfOption(bo.getAssesmentItemNoOfOption());
+			assesmentItem.setAssessmentItemTopic(bo.getAssessmentItemTopic());
 			if (AssesmentItemType.getAssesmentItemType(bo.getAssesmentItemType().getEnumValue()) != null) {
 				assesmentItem.setAssesmentItemType(bo.getAssesmentItemType().getEnumValue());
 			}
 			assesmentItem.setComment(bo.getComment());
 			assesmentItem.setId(bo.getId());
 			assesmentItem.setMaxTimeAllowed(bo.getMaxTimeAllowed());
+			assesmentItem.setCorrectOption(bo.getCorrectOption());
 		}
 		return assesmentItem;
 	}	

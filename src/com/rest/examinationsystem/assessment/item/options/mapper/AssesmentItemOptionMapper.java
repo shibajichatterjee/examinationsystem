@@ -27,6 +27,7 @@ public class AssesmentItemOptionMapper extends AbstractMapper<AssesmentItemOptio
 			assesmentItemOption.setId(dto.getId());
 			assesmentItemOption.setOptionImage(dto.getOptionImage());
 			assesmentItemOption.setOptionText(dto.getOptionText());
+			assesmentItemOption.setComment(dto.getComment());
 			if(dto.getAssesmentItem()!=null) {
 				assesmentItem = new AssesmentItem();
 				assesmentItem.setAssessmentItemGivenId(dto.getAssesmentItem().getAssessmentItemGivenId());
@@ -56,6 +57,7 @@ public class AssesmentItemOptionMapper extends AbstractMapper<AssesmentItemOptio
 			assesmentItemOption.setId(bo.getId());
 			assesmentItemOption.setOptionImage(bo.getOptionImage());
 			assesmentItemOption.setOptionText(bo.getOptionText());
+			assesmentItemOption.setComment(bo.getComment());
 			if(bo.getAssesmentItem()!=null) {
 				assesmentItem = new AssesmentItemDto();
 				assesmentItem.setAssessmentItemGivenId(bo.getAssesmentItem().getAssessmentItemGivenId());
