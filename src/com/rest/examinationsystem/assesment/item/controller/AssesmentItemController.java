@@ -61,16 +61,13 @@ public class AssesmentItemController {
 		if (!apiKey.equals(MessageEnum.API_KEY)) {
 			throw new UnauthorizedException(MessageEnum.unathorized);
 		}
-		//byte[] byteArray = ImageUtil.getByteArrayFromMaltipartFormData(file);
-		//InputStream targetStream = new ByteArrayInputStream(byteArray);
+		
 		InputStream targetStream=new BufferedInputStream(file.getInputStream());
 		InputStream targetStream1=new BufferedInputStream(file.getInputStream());
 
 		Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(targetStream,targetStream1);
 		
-		//Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(assesmentFilePath);
-
-		/*for(AssesmentItemDto assesmentItemDto:assesmentItemDtoMap.keySet())
+		for(AssesmentItemDto assesmentItemDto:assesmentItemDtoMap.keySet())
 		{
 			assesmentItemService.createOrUpdate(assesmentItemDto);
 			for(AssesmentItemOptionDto assesmentItemOptionDto:assesmentItemDtoMap.get(assesmentItemDto))
@@ -78,7 +75,7 @@ public class AssesmentItemController {
 				assesmentItemOptionService.create(assesmentItemOptionDto);
 			}
 
-		}*/
+		}
 
 		responseBean.setBody(MessageEnum.enumMessage.SUCESS.getMessage());
 		return new ResponseEntity(responseBean, org.springframework.http.HttpStatus.OK);
