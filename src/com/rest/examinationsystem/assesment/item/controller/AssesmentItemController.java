@@ -1,5 +1,6 @@
 package com.rest.examinationsystem.assesment.item.controller;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -62,11 +63,12 @@ public class AssesmentItemController {
 		}
 		//byte[] byteArray = ImageUtil.getByteArrayFromMaltipartFormData(file);
 		//InputStream targetStream = new ByteArrayInputStream(byteArray);
-		//Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(targetStream);
+		InputStream targetStream=new BufferedInputStream(file.getInputStream());
+		Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(targetStream);
 		
-		Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(assesmentFilePath);
+		//Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(assesmentFilePath);
 
-		for(AssesmentItemDto assesmentItemDto:assesmentItemDtoMap.keySet())
+		/*for(AssesmentItemDto assesmentItemDto:assesmentItemDtoMap.keySet())
 		{
 			assesmentItemService.createOrUpdate(assesmentItemDto);
 			for(AssesmentItemOptionDto assesmentItemOptionDto:assesmentItemDtoMap.get(assesmentItemDto))
@@ -74,7 +76,7 @@ public class AssesmentItemController {
 				assesmentItemOptionService.create(assesmentItemOptionDto);
 			}
 
-		}
+		}*/
 
 		responseBean.setBody(MessageEnum.enumMessage.SUCESS.getMessage());
 		return new ResponseEntity(responseBean, org.springframework.http.HttpStatus.OK);
