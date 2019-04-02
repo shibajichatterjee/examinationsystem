@@ -292,8 +292,10 @@ public class ExcelUtil {
 		List<String> headerList = Collections.emptyList();
 		//FileInputStream file = new FileInputStream(new File(filePath));
 
-		org.apache.poi.ss.usermodel.Workbook workbook = WorkbookFactory.create(inputStream);
-		org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheetAt(0);
+		/*org.apache.poi.ss.usermodel.Workbook workbook = WorkbookFactory.create(inputStream);
+		org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheetAt(0);*/
+		XSSFWorkbook xssfWorkbook = new XSSFWorkbook(inputStream);
+		XSSFSheet sheet = xssfWorkbook.getSheetAt(0);
 
 		Iterator<Row> rowIterator = sheet.rowIterator();
 		List<AssesmentItemOptionDto> assesmentItemOptionDtoList = null;
