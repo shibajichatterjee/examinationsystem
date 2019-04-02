@@ -64,7 +64,9 @@ public class AssesmentItemController {
 		//byte[] byteArray = ImageUtil.getByteArrayFromMaltipartFormData(file);
 		//InputStream targetStream = new ByteArrayInputStream(byteArray);
 		InputStream targetStream=new BufferedInputStream(file.getInputStream());
-		Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(targetStream);
+		InputStream targetStream1=new BufferedInputStream(file.getInputStream());
+
+		Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(targetStream,targetStream1);
 		
 		//Map<AssesmentItemDto, List<AssesmentItemOptionDto>> assesmentItemDtoMap= excelUtil.convertExcelToItemObject(assesmentFilePath);
 

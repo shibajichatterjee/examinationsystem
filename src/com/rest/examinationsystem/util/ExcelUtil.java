@@ -286,7 +286,7 @@ public class ExcelUtil {
 		return headerList;
 	}
 	
-	public Map<AssesmentItemDto, List<AssesmentItemOptionDto>> convertExcelToItemObject(InputStream inputStream) throws IOException {
+	public Map<AssesmentItemDto, List<AssesmentItemOptionDto>> convertExcelToItemObject(InputStream inputStream,InputStream inputStream1) throws IOException {
 
 		Map<Integer, Map<Integer, byte[]>> imageMap =  getImageIndex(inputStream);
 		List<String> headerList = Collections.emptyList();
@@ -294,7 +294,7 @@ public class ExcelUtil {
 
 		/*org.apache.poi.ss.usermodel.Workbook workbook = WorkbookFactory.create(inputStream);
 		org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheetAt(0);*/
-		XSSFWorkbook xssfWorkbook = new XSSFWorkbook(inputStream);
+		XSSFWorkbook xssfWorkbook = new XSSFWorkbook(inputStream1);
 		XSSFSheet sheet = xssfWorkbook.getSheetAt(0);
 
 		Iterator<Row> rowIterator = sheet.rowIterator();
